@@ -107,7 +107,7 @@ function createNotification(message) {
 }
 //уведомления
 //погода
-fetch(`http://api.openweathermap.org/data/2.5/weather?q=${userCity},ua&appid=f47fb2a9d3f12b8600041082bccf9428&lang=ua`)
+fetch(`https://api.openweathermap.org/data/2.5/weather?q=${userCity},ua&appid=f47fb2a9d3f12b8600041082bccf9428&lang=ua`)
   .then(function (resp) {
     return resp.json();
   })
@@ -384,7 +384,7 @@ function airCondionControl() {
 
   switchAirCondion.addEventListener('change', function () {
     if (switchAirCondion.checked) {
-      fetch(`http://api.openweathermap.org/data/2.5/weather?q=${userCity},ua&appid=f47fb2a9d3f12b8600041082bccf9428&lang=ua`)
+      fetch(`https://api.openweathermap.org/data/2.5/weather?q=${userCity},ua&appid=f47fb2a9d3f12b8600041082bccf9428&lang=ua`)
         .then(function (resp) {
           return resp.json();
         })
@@ -672,7 +672,7 @@ function jalouiseControl() {
   });
   switchJalouiseSmartMode.addEventListener('change', () => {
     if (switchJalouiseSmartMode.checked) {
-      fetch('http://api.openweathermap.org/data/2.5/weather?q=Киев,ua&appid=f47fb2a9d3f12b8600041082bccf9428&lang=ua')
+      fetch('https://api.openweathermap.org/data/2.5/weather?q=Киев,ua&appid=f47fb2a9d3f12b8600041082bccf9428&lang=ua')
         .then(function (resp) {
           return resp.json();
         })
