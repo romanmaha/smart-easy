@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>SmartHome</title>
+  </head>
+  <body>
+    <div class="loginbox">
+      <div class="avatar"></div>
+      <h1 class="form-title">Для максимальної персоналізації системи SmartHome заповніть будь ласка форму нижче</h1>
+
+      <form class="subscription" id="userForm" name="userForm">
+        <p>Ваше ім’я</p>
+        <input type="text" name="userName" class="user__name" placeholder="Іван" id="userName" value="" />
+        <p>З якого Ви міста?</p>
+        <input type="text" id="userCity" name="userCity" placeholder="Львів" value=""/>
+        <p>Яка температура в кімнаті для Вас комфортна?</p>
+        <input type="number" id="userTemperature" name="userTemperature" placeholder="23" value=""/>
+        <p>О якій годині Ви їдете на роботу?</p>
+        <input type="number" id="goToWork" name="goToWork" placeholder="9" value=""/>
+        <p>О якій годині Ви повертаєтесь з роботи?</p>
+        <input type="number"  id="comeBackFromWork" name="comeBackFromWork" placeholder="18" value=""/>
+        <input type="submit" id="formSubmit" value="Підтвердити">
+      </form>
+    </div>
+    <div class="smarthome-wrapper hide">
+    <div class="weather-container hide">
+      <h2 class="city">London</h2>
+      <h2 class="weather-date"></h2>
+      <h2 class="temperature">25</h2>
+      <h2 class="weather-description">Clouds</h2>
+      <img class="icon" src="" alt="" />
+
+      <h2 class="sunrise">7:59</h2>
+      <h2 class="sunset">8:59</h2>
+    </div>
+    <div class="container">
+      <div class="first-screen">
+        <h2 class="title">Привіт, Вас вітає система управління розумним домом - SmartFriend!</h2>
+        <p class="title__description">Для початку давайте додамо компоненти для управління Вашим будинком</p>
+        <button class="title__confirm">Почати налаштування</button>
+      </div>
+      <div class="start-settings hide">
+        <h2 class="star-settings-heder">Які компоненти розумного будинку ви хочете налаштувати в першу чергу?</h2>
+      </div>
+      <div class="start-menu hide">
+        <div class="menu">
+          
+          <label class="checkbox-btn" data-toggle="tooltip" title="Освітлення">
+            <input type="checkbox" id="menuLightButton" />
+            <span class="btn-4"></span>
+          </label>
+          <label class="checkbox-btn" data-toggle="tooltip" title="Кондиціонер!" >
+            <input type="checkbox" id="menuAirConditionButton" />
+            <span class="btn-1"></span>
+          </label>
+         
+          <label class="checkbox-btn" data-toggle="tooltip" title="Гараж!">
+            <input type="checkbox" id="menuGarageButton" />
+            <span class="btn-2"></span>
+          </label>
+          <label class="checkbox-btn" data-toggle="tooltip" title="Опалення!">
+            <input type="checkbox" id="menuGeatingButton" />
+            <span class="btn-3"></span>
+          </label>
+          <label class="checkbox-btn" data-toggle="tooltip" title="Телевізор!">
+            <input type="checkbox" id="menuTVButton" />
+            <span class="btn-5"></span>
+          </label>
+          <label class="checkbox-btn" data-toggle="tooltip" title="Жалюзі!">
+            <input type="checkbox" id="menuJalouiseButton" />
+            <span class="btn-6"></span>
+          </label>
+          <label class="checkbox-btn" data-toggle="tooltip" title="Музика!">
+            <input type="checkbox" id="menuMusicButton" />
+            <span class="btn-7"></span>
+          </label>
+          <label class="checkbox-btn" data-toggle="tooltip" title="Безпека!">
+            <input type="checkbox" id="menuSecurityButton" />
+            <span class="btn-8"></span>
+          </label>
+          <label class="checkbox-btn" data-toggle="tooltip" title="Прогноз погоди!">
+            <input type="checkbox" id="weatherForecast" />
+            <span class="btn-9"></span>
+          </label>
+        </div>
+      </div>
+      <div class="main-screen-wrapper">
+        <!-- Свет -->
+        <div class="main-screen-item hide" id="light">
+          <h2>Освітлення</h2>
+
+          <label class="switch-wrap">
+            <input  type="checkbox" class="light-togles" id="switch-light"/>
+            <div class="switch"></div>
+          </label>
+          <span>Світло (викл/вкл)</span>
+          <br />
+          <label class="switch-wrap">
+            <input id="switch-extralight" class="light-togles" type="checkbox" />
+            <div class="switch"></div>
+          </label>
+          <span>Додаткове Світло</span>
+          <br />
+          <label class="switch-wrap">
+            <input id="switch-relaxmode" class="light-togles" type="checkbox" />
+            <div class="switch"></div>
+          </label>
+          <span>Релакс режим</span>
+
+          <div class="slidecontainer">
+            <input type="range" min="0" max="100" value="0" class="slider" id="lightBrightnessRange" disabled />
+            <p>Яскравість: <span id="lightBrightnessValue"></span></p>
+          </div>
+        </div>
+        <!-- Кондиционер -->
+        <div class="main-screen-item hide" draggable="true" id="air-condition">
+          <h2>Кондиціонер</h2>
+          <label class="switch-wrap">
+            <input type="checkbox" id="switch-air-condion"/>
+            <div class="switch"></div>
+          </label>
+          <span>Кондиціонер(викл/вкл)</span>
+          <br />
+          <div class="air-mode">
+          <span ></span>Режим:</span> <br>
+
+          <label for="cbk1">
+            <input type="checkbox" id="cbk1" class="air-mode-cb heating-mode" disabled>
+            <span class="cbx">
+              <svg width="12px" height="11px" viewBox="0 0 12 11">
+                <polyline points="1 6.29411765 4.5 10 11 1"></polyline>
+              </svg>
+            </span>
+            <span>Обігрів</span>
+          </label>
+        
+
+          <label for="cbk2">
+            <input type="checkbox" id="cbk2" class="air-mode-cb cooling-mode" disabled>
+            <span class="cbx">
+              <svg width="12px" height="11px" viewBox="0 0 12 11">
+                <polyline points="1 6.29411765 4.5 10 11 1"></polyline>
+              </svg>
+            </span>
+            <span>Охолодження</span>
+          </label>
+          <label for="temperature">Температура:</label>
+          <button class="decrease-temperature"></button> <input  type="number" step="1" min="15" max="28" name="temperature" value="18" id="temperature"  disabled><button class="add-temperature"></button>
+        </div>
+          
+        </div>
+        <!-- Гараж -->
+        <div class="main-screen-item hide" id="garage">
+          <h2>Гараж</h2>
+
+          <label class="switch-wrap">
+            <input type="checkbox" id="garageDoors" />
+            <div class="switch"></div>
+          </label>
+          <span>Ворота (відкрити/закрити)</span>
+          <br />
+          <label class="switch-wrap">
+            <input type="checkbox" id="garageVentilation" />
+            <div class="switch"></div>
+          </label>
+          <span>Вентиляція (викл/вкл)</span>
+          <br />
+          <label class="switch-wrap">
+            <input type="checkbox" id="autoCharging" />
+            <div class="switch"></div>
+          </label>
+          <span>Зарядити електромобіль</span>
+
+          <label class="switch-wrap">
+            <input type="checkbox" id="smartModeCharging" />
+            <div class="switch"></div>
+          </label>
+          <span data-toggle="tooltip" title="Зарядка розпочнеться, в період з 23:00 до 07:00, коли тарифи на електроенергію на 50% нижчі">Smart режим підзарядки</span>
+        </div>
+
+        <!-- Отоплення -->
+        <div class="main-screen-item hide" id="heating">
+          <h2>Опалення</h2>
+
+          <label class="switch-wrap">
+            <input type="checkbox" id = "switchBoiler" />
+            <div class="switch"></div>
+          </label>
+          <span>Котел(викл/вкл)</span>
+          <br>
+          <label class="switch-wrap">
+            <input type="checkbox" id="warmFloor" disabled/>
+            <div class="switch"></div>
+          </label>
+          <span>Тепла підлога(викл/вкл)</span> <br>
+          
+      
+          <label class="switch-wrap">
+            <input type="checkbox" id="smartHeatingMode" />
+            <div class="switch"></div>
+          </label>
+          <span data-toggle="tooltip" title="Котел почне працювати за годину до Вашого приїзду з роботи і автоматично вимкнеться зранку, коли ви їдете на роботу">Smart режим </span> <br>
+          <label for="heating-temperature">Температура:</label>
+          <button class="decrease-heating-temperature" disabled></button> <input type="number" step="1" min="15" max="28" name="temperature" value="40" id="heatingTemperature" disabled><button class="add-heating-temperature" disabled></button>
+        </div>
+
+        <!-- ТВ -->
+        <div class="main-screen-item hide" id="tv">
+          
+          <h2>ТВ</h2>
+          <div class="tw-wrapper">
+            <label class="checkbox-btn">
+              <input type="checkbox" id="tv-power" />
+              <span class="power"></span>
+            </label>
+            <label class="checkbox-btn">
+              <input type="checkbox" id="tv-list" disabled />
+              <span class="chanel-list"></span>
+            </label>
+            <label class="checkbox-btn">
+              <input type="checkbox" id="next-chanel" disabled/>
+              <span class="next-chanel"></span>
+            </label>
+            <label class="checkbox-btn">
+              <input type="checkbox" id="previous-chanel" disabled/>
+              <span class="previous-chanel"></span>
+            </label>
+          <label class="checkbox-btn">
+            <input type="checkbox" id="mute" disabled/>
+            <span class="mute"></span>
+          </label>
+          </div>
+          <div class="slidecontainer">
+            <input type="range" min="0" max="100" value="" class="slider" id="volumeRange" disabled />
+            <p>Гучність: <span id="volumeValue"></span></p>
+          </div>
+          <div class="list-wrapper hide">
+          <div class="select " tabindex="1">
+            <input class="selectopt" name="test" type="radio" id="opt1" checked>
+            <label for="opt1" class="option">CNN</label>
+            <input class="selectopt" name="test" type="radio" id="opt2">
+            <label for="opt2" class="option">1+1</label>
+            <input class="selectopt" name="test" type="radio" id="opt3">
+            <label for="opt3" class="option">ICTV</label>
+            <input class="selectopt" name="test" type="radio" id="opt4">
+            <label for="opt4" class="option">СТБ</label>
+            <input class="selectopt" name="test" type="radio" id="opt5">
+            <label for="opt5" class="option">Новий Канал</label>
+            <input class="selectopt" name="test" type="radio" id="opt6">
+            <label for="opt6" class="option">SoftServeChanel</label>
+            <input class="selectopt" name="test" type="radio" id="opt7">
+            <label for="opt7" class="option">Інтер</label>
+            <input class="selectopt" name="test" type="radio" id="opt8">
+            <label for="opt8" class="option">ТЕТ</label>
+            <input class="selectopt" name="test" type="radio" id="opt10">
+            <label for="opt9" class="option">Футбол</label>
+            <input class="selectopt" name="test" type="radio" id="opt10">
+            <label for="opt10" class="option">TV 1000</label>
+          </div>
+        </div>
+           
+        </div>
+
+        <!-- Жалюзі -->
+        <div class="main-screen-item hide" id="jalouise">
+          <h2>Жалюзі</h2>
+
+          <label class="switch-wrap">
+            <input type="checkbox" id="switchJalouise"/>
+            <div class="switch"></div>
+          </label>
+          <span>Жалюзі (підняти/опустити)</span>
+          <br />
+          <label class="switch-wrap">
+            <input type="checkbox" id="switchDayNightMode"  />
+            <div class="switch"></div>
+          </label>
+          <span data-toggle="tooltip" title="В цьому режимі жалюзі будуть налаштовані так, щоб пропускати 50% світла">Режим день/ніч</span>
+          <br />
+          <label class="switch-wrap">
+            <input type="checkbox" id="switchJalouiseSmartMode"/>
+            <div class="switch"></div>
+          </label>
+          <span>Smart режим</span>
+        </div>
+
+        <!-- Медіа -->
+        <div class="main-screen-item hide" id="media">
+          <h2>Управління музикою</h2>
+          
+          <div class="music-container" id="music-container">
+            <div class="music-info">
+              <h4 id="title"></h4>
+              <div class="progress-container" id="progress-container">
+                <div class="progress" id="progress"></div>
+              </div>
+            </div>
+      
+            <audio src="Один В Каное - Мамма.mp3" id="audio"></audio>
+      
+            <div class="img-container">
+              <img src="images/ukulele.jpg" alt="music-cover" id="cover" />
+            </div>
+            <div class="navigation">
+              <button id="prev" class="action-btn">
+                <i class="fas fa-backward"></i>
+              </button>
+              <button id="play" class="action-btn action-btn-big">
+                <i class="fas fa-play"></i>
+              </button>
+              <button id="next" class="action-btn">
+                <i class="fas fa-forward"></i>
+              </button>
+              <button id="muteMusic" class="action-btn mute">
+                <i class="fas fa-volume-up"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Безпека -->
+        <div class="main-screen-item hide" id="security">
+          <h2>Безпека</h2>
+          <label class="switch-wrap">
+            <input type="checkbox" id="alarmSystem" />
+            <div class="switch"></div>
+          </label>
+          <span>Сигналізація і датчики руху </span>
+          <br />
+          <label class="switch-wrap">
+            <input type="checkbox" id="videoSurveillance"/>
+            <div class="switch"></div>
+          </label>
+          <span>Відеонагляд </span>
+          <br />
+          <label class="switch-wrap">
+            <input type="checkbox" id="fireProtection"/>
+            <div class="switch"></div>
+          </label>
+          <span>Пожежна охорона</span> <br>
+          <label class="switch-wrap">
+            <input type="checkbox" id="smartSecurityMode"/>
+            <div class="switch"></div>
+          </label>
+          <span data-toggle="tooltip" title="В цьому режимі система буде перевіряти, чи всі системи безпеки включені після того як Ви поїхали на роботу ">Smart режим безпеки</span>
+        </div>
+         
+        </div>
+        <!-- заканчивается обвертка -->
+      </div>
+      <!-- заканчивается контейнер -->
+    </div>
+    
+    <div id="notification"></div>
+  </div>
+    <script src="js/script.js"></script>
+  </body>
+</html>
